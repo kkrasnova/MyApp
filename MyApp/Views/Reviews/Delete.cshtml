@@ -1,0 +1,14 @@
+﻿@model MyApp.Models.Review
+
+<h1>Видалити відгук</h1>
+
+<h3>Ви впевнені, що хочете видалити цей відгук?</h3>
+<div>
+    <h4>@Model.Content</h4>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Видалити</button>
+    <a asp-action="Index">Скасувати</a>
+</form>

@@ -1,0 +1,19 @@
+﻿@model MyApp.Models.Product
+
+<h1>Створити продукт</h1>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="Name">Назва:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Price">Ціна:</label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label asp-for="Description">Опис:</label>
+        <input asp-for="Description" />
+    </div>
+    <button type="submit">Створити</button>
+</form>

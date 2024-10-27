@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Продуктовий Рай</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Продуктовий Рай</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Переключити навігацію">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index">Продукти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Категорії</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Catalog" asp-action="Index">Каталог товарів</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Promotions" asp-action="Index">Акції</a>
+                        </li>
+                    </ul>
+                    <div class="search-and-auth">
+                        <form asp-controller="Search" asp-action="Index" method="get" class="d-flex">
+                            <input type="text" name="query" class="form-control me-2" placeholder="Пошук продуктів..." />
+                            <button type="submit" class="btn btn-outline-success">Пошук</button>
+                        </form>
+                        <div class="auth-links">
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Вхід</a>
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Реєстрація</a>
+                        </div>
+                        <div class="cart">
+                            <a class="nav-link text-dark" asp-controller="Cart" asp-action="Index">Кошик (0)</a> <!-- Замените 0 на количество товаров в корзине -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Продуктовий Рай - <a asp-area="" asp-controller="Home" asp-action="Privacy">Конфіденційність</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

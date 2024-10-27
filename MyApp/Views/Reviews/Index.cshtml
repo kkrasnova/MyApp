@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MyApp.Models.Review>
+
+<h1>Відгуки</h1>
+
+<p>
+    <a asp-action="Create">Створити новий</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Користувач</th>
+            <th>Продукт</th>
+            <th>Оцінка</th>
+            <th>Зміст</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.User.Username</td>
+                <td>@review.Product.Name</td>
+                <td>@review.Rating</td>
+                <td>@review.Content</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@review.Id">Редагувати</a> |
+                    <a asp-action="Delete" asp-route-id="@review.Id">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

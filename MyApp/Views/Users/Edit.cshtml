@@ -1,0 +1,16 @@
+﻿@model MyApp.Models.User
+
+<h1>Редагувати користувача</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Username">Ім'я користувача:</label>
+        <input asp-for="Username" />
+    </div>
+    <div>
+        <label asp-for="Email">Електронна пошта:</label>
+        <input asp-for="Email" />
+    </div>
+    <button type="submit">Зберегти</button>
+</form>

@@ -1,0 +1,12 @@
+﻿@model MyApp.Models.Category
+
+<h1>Редагувати категорію</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Name">Назва:</label>
+        <input asp-for="Name" />
+    </div>
+    <button type="submit">Зберегти</button>
+</form>

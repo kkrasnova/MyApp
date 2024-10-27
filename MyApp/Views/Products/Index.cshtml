@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MyApp.Models // Убедитесь, что вы используете правильное пространство имен
+@inject UserManager<ApplicationUser> UserManager 
+
+<h1>Продукти</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-controller="Products" asp-action="Create" class="btn btn-primary">Додати новий продукт</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th>Опис</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">Переглянути</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Редагувати</a>
+                        <a asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">Видалити</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

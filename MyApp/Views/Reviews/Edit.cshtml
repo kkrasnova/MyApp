@@ -1,0 +1,24 @@
+﻿@model MyApp.Models.Review
+
+<h1>Редагувати відгук</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="UserId">Користувач:</label>
+        <select asp-for="UserId" asp-items="@(new SelectList(ViewBag.Users, "Id", "Username"))"></select>
+    </div>
+    <div>
+        <label asp-for="ProductId">Продукт:</label>
+        <select asp-for="ProductId" asp-items="@(new SelectList(ViewBag.Products, "Id", "Name"))"></select>
+    </div>
+    <div>
+        <label asp-for="Rating">Оцінка:</label>
+        <input asp-for="Rating" />
+    </div>
+    <div>
+        <label asp-for="Content">Зміст:</label>
+        <input asp-for="Content" />
+    </div>
+    <button type="submit">Зберегти</button>
+</form>

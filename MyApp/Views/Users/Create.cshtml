@@ -1,0 +1,23 @@
+﻿@model MyApp.Models.User
+
+<h1>Створити користувача</h1>
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div>
+        <label asp-for="Username">Ім'я користувача:</label>
+        <input asp-for="Username" />
+    </div>
+    <div>
+        <label asp-for="Email">Електронна пошта:</label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="PhoneNumber">Номер телефону:</label>
+        <input asp-for="PhoneNumber" />
+    </div>
+    <div>
+        <label>Завантажити файл:</label>
+        <input type="file" name="file" />
+    </div>
+    <button type="submit">Створити</button>
+</form>

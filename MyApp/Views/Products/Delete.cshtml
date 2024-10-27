@@ -1,0 +1,14 @@
+﻿@model MyApp.Models.Product
+
+<h1>Видалити продукт</h1>
+
+<h3>Ви впевнені, що хочете видалити цей продукт?</h3>
+<div>
+    <h4>@Model.Name</h4>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Видалити</button>
+    <a asp-action="Index">Скасувати</a>
+</form>

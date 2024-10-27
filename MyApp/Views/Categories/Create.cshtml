@@ -1,0 +1,11 @@
+﻿@model MyApp.Models.Category
+
+<h1>Створити категорію</h1>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="Name">Назва:</label>
+        <input asp-for="Name" />
+    </div>
+    <button type="submit">Створити</button>
+</form>

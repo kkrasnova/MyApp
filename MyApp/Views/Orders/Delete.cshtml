@@ -1,0 +1,14 @@
+﻿@model MyApp.Models.Order
+
+<h1>Видалити замовлення</h1>
+
+<h3>Ви впевнені, що хочете видалити це замовлення?</h3>
+<div>
+    <h4>@Model.User.Username - @Model.Product.Name</h4>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Видалити</button>
+    <a asp-action="Index">Скасувати</a>
+</form>
